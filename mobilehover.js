@@ -1,14 +1,16 @@
 let cards = document.getElementById("cards");
 cards.onclick = function(event) {
-    let target = event.target;
+    var target = event.target;
     show(target);
 }
 
 function show(el) {
-    el.classList.remove("opacity-0");
-    el.classList.add("opacity-100");
+    if (el.classList.contains("opacity-0") && (!el.classList.contains("opacity-100"))) {
+        el.classList.remove("opacity-0");
+        el.classList.add("opacity-100"); 
+    }
+    else if (el.classList.contains("opacity-100") && (!el.classList.contains("opacity-0"))) {
+        el.classList.remove("opacity-100");
+        el.classList.add("opacity-0");
+    }
 }
-
-window.addEventListener("click", function () {
-    
-});
