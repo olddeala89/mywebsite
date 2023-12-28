@@ -1,8 +1,13 @@
-let cards = document.getElementById("cards");
-cards.onclick = function(event) {
-    var target = event.target;
+[].forEach.call(document.querySelectorAll(".card"), card => card.addEventListener('click', event => {
+    //var target = event.target;
+    if (event.target.tagName === "DIV") {
+        var target = event.target;
+    }
+    else if (event.target.tagName === "H2" || event.target.tagName === "H1" || event.target.tagName === "P") {
+        var target = event.target.parentNode;
+    }
     show(target);
-}
+}))
 
 function show(el) {
     if (el.classList.contains("opacity-0") && (!el.classList.contains("opacity-100"))) {
